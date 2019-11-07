@@ -24,3 +24,4 @@
   - import_tasks: ansible_tasks/setup_kubectl_completion.yml
   - import_tasks: ansible_tasks/setup_kubectl_tools.yml
   - import_tasks: ansible_tasks/setup_whaler_dive.yml
+  - import_tasks: ansible_tasks/setup_kube_bench.yml
