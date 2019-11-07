@@ -4,6 +4,11 @@ This is a playbook for setting up a container security workstation with common t
 
 Rough draft at the moment, still quite a bit of work to do.
 
+## Pre-requisites
+
+- Tested on Ubuntu, may work on other deb based distros
+- [Ansible install](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
 
 ## Tools List
 

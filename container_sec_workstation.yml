@@ -5,6 +5,8 @@
 - name: Setup a Container Security Ubuntu Machine
   hosts: localhost
   become: yes
+  vars:
+    user: rorym
 
 
   tasks:
