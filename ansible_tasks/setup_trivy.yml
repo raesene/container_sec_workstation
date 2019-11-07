@@ -11,4 +11,4 @@
   - name: Update Trivy Database in the background
     shell: nohup trivy kennship/http-echo:latest </dev/null >/dev/null 2>&1 &
     become: yes
-    become_user: {{user}}
+    become_user: "{{user}}"
