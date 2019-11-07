@@ -20,7 +20,7 @@
       name: ['docker-ce', 'docker-ce-cli']
       state: present
 
-  - name: Add ubuntu user to Docker group
+  - name: Add user to Docker group
     user:
       name: "{{user}}"
       group: docker
