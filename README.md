@@ -29,6 +29,7 @@ Rough draft at the moment, still quite a bit of work to do.
 - [trivy](https://github.com/aquasecurity/trivy/)
 - [whaler](https://github.com/P3GLEG/Whaler)
 - [dive](https://github.com/wagoodman/dive)
+- [kube-bench](https://github.com/aquasecurity/kube-bench/)
 
 ## TODO
 
