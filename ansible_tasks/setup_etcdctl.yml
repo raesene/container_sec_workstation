@@ -1,0 +1,16 @@
+---
+  - name: Get etcd
+    get_url:
+      src: https://github.com/etcd-io/etcd/releases/download/v3.4.3/etcd-v3.4.3-linux-amd64.tar.gz
+      dest: /tmp/etcd.tar.gz
+
+  - name: unarchive etcd
+    unarchive:
+      src: /tmp/etcd.tar.gz
+      dest: /tmp
+
+  - name: move etcdctl into place
+    copy:
+      src: /tmp/etcd-v3.4.3-linux-amd64/etcdctl
+      dest: /usr/local/bin
+      mode: 0755

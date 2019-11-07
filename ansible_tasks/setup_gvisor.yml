@@ -1,0 +1,7 @@
+---
+  - name: Get GVisor
+    get_url:
+      src: https://storage.googleapis.com/gvisor/releases/nightly/latest/runsc
+      dest: /usr/local/bin
+      mode: 0755
+      

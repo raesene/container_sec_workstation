@@ -1,0 +1,7 @@
+---
+
+  - name: Copy Auger into place
+    copy:
+      src: ../files/auger/auger
+      dest: /usr/local/bin/
+      mode: 0755

@@ -1,0 +1,28 @@
+---
+
+  - name: Copy files to /usr/local/bin/ 
+    copy:
+      src: ../files/kubectltools/{{ item }}
+      dest: /usr/local/bin/
+      mode: 0755
+    with_items:
+      - kube-ps1.sh
+      - kubens
+      - kubectx
+  
+  - name: copy completion files to /etc
+    copy:
+      src: ../kubectltools/{{ item }}
+      dest: /etc/bash_completion.d/
+      mode: 0755
+    with_items:
+      - kubens.bash
+      - kubectx.bash
+
+  - name: Setup bashrc for kube-ps1
+    blockinfile:
+      path: /home/rorym/.bashrc
+      block: |
+        source /usr/local/bin/kube-ps1.sh
+        PS1='[\h \W $(kube_ps1)]\$ '
+  

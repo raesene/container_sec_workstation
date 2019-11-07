@@ -1,0 +1,7 @@
+---
+  - name: Get kind
+    get_url:
+      src: https://github.com/kubernetes-sigs/kind/releases/download/v0.5.1/kind-linux-amd64
+      dest: /usr/local/bin
+      mode: 0755
+      

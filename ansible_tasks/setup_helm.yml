@@ -1,0 +1,16 @@
+---
+  - name: Helm Files
+    get_url:
+      url: https://get.helm.sh/helm-v2.16.0-linux-amd64.tar.gz
+      dest: /tmp/helm.tar.gz
+
+  - name: unzip Helm
+    unarchive:
+      src: /tmp/helm.tar.gz
+      dest: /tmp
+
+  - name: move helm into place
+    copy:
+      src: /tmp/linux-amd64/helm
+      dest: /usr/local/bin
+      mode: 0755

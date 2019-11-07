@@ -1,0 +1,8 @@
+---
+  - name: Install bash completion
+    apt:
+      name: ['bash-completion']
+      state: present
+
+  - name: Install Kubectl completion
+    shell: kubectl completion bash >/etc/bash_completion.d/kubectl

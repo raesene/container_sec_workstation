@@ -1,0 +1,27 @@
+---
+  - name: install dependencies for adding repos
+    apt:
+      name: ['apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common']
+      state: present
+
+  - name: Install Docker APT key
+    apt_key: 
+      id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+  - name: Add Docker Repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+      state: present
+
+  - name: Install docker
+    apt: 
+      name: ['docker-ce', 'docker-ce-cli']
+      state: present
+
+  - name: Add ubuntu user to Docker group
+    user:
+      name: rorym
+      group: docker
+      append: yes

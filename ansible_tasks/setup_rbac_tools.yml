@@ -1,0 +1,23 @@
+---
+  - name: copy rakkess into place
+    copy:
+      src: ../files/rakkess/rakkess
+      dest: /usr/local/bin
+      mode: 0755
+
+  - name: copy rback into place
+    copy:
+      src: ../files/rback/rback
+      dest: /usr/local/bin
+      mode: 0755
+
+  - name: copy who can into place
+    copy:
+      src: ../files/kubectl-who-can/kubectl-who-can
+      dest: /usr/local/bin
+      mode: 0755
+
+  - name: install depenencies for rback
+    apt:
+      name: ['graphviz']
+      state: present

@@ -1,0 +1,15 @@
+---
+  - name: Install Kubeadm APT key
+    apt_key: 
+      url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      state: present
+
+  - name: Add Kubeadm Repository
+    apt_repository:
+      repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
+      state: present
+
+  - name: Install kubeadm, kubelet, kubectl and jq
+    apt:
+      name: ['kubectl', 'jq']
+      state: present

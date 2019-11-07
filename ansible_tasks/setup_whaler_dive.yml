@@ -1,0 +1,12 @@
+---
+  - name: copy whaler into place
+    copy:
+      src: ../files/whaler/whaler
+      dest: /usr/local/bin
+      mode: 0755
+
+  - name: copy dive into place
+    copy:
+      src: ../files/dive/dive
+      dest: /usr/local/bin
+      mode: 0755
