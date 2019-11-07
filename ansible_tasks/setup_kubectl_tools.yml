@@ -21,7 +21,7 @@
 
   - name: Setup bashrc for kube-ps1
     blockinfile:
-      path: /home/"{{user}}"/.bashrc
+      path: /home/{{user}}/.bashrc
       block: |
         source /usr/local/bin/kube-ps1.sh
         PS1='[\h \W $(kube_ps1)]\$ '
