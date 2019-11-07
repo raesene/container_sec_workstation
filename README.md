@@ -30,3 +30,5 @@ Rough draft at the moment, still quite a bit of work to do.
 - Parameterize the username
 - Add More tools
   - kube-bench
+- Make installation patterns consistent
+- Check Checksums/signatures where apt not used
