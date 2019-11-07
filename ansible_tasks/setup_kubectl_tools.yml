@@ -12,7 +12,7 @@
   
   - name: copy completion files to /etc
     copy:
-      src: ../kubectltools/{{ item }}
+      src: ../files/kubectltools/{{ item }}
       dest: /etc/bash_completion.d/
       mode: 0755
     with_items:

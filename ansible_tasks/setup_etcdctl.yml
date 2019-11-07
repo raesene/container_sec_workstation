@@ -1,7 +1,7 @@
 ---
   - name: Get etcd
     get_url:
-      src: https://github.com/etcd-io/etcd/releases/download/v3.4.3/etcd-v3.4.3-linux-amd64.tar.gz
+      url: https://github.com/etcd-io/etcd/releases/download/v3.4.3/etcd-v3.4.3-linux-amd64.tar.gz
       dest: /tmp/etcd.tar.gz
 
   - name: unarchive etcd
