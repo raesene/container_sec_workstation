@@ -1,6 +1,9 @@
 #!/usr/bin/env ansible-playbook
-# This is a demo client. Run this playbook after running the demo-cluster to get a client with
-# a kubeconfig file with access to the demo cluster
+# This is a playbook for setting up a container security testing workstation
+# if you don't need/want specific tools just comment out the appropriate line.
+# N.B. change the user: variable to whatever user you use.
+
+
 ---
 - name: Setup a Container Security Ubuntu Machine
   hosts: localhost
@@ -25,5 +28,6 @@
   - import_tasks: ansible_tasks/setup_kubectl_tools.yml
   - import_tasks: ansible_tasks/setup_whaler_dive.yml
   - import_tasks: ansible_tasks/setup_kube_bench.yml
+  - import_takss: ansible_tasks/setup_firefox.yml
   - import_tasks: ansible_tasks/setup_inputrc.yml
   - import_tasks: ansible_tasks/setup_octant.yml
