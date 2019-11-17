@@ -1,0 +1,5 @@
+---
+  - name: install firefox
+    apt:
+      name: ['firefox']
+      state: present

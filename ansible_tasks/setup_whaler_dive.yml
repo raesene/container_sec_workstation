@@ -5,8 +5,10 @@
       dest: /usr/local/bin
       mode: 0755
 
-  - name: copy dive into place
-    copy:
-      src: ../files/dive/dive
-      dest: /usr/local/bin
-      mode: 0755
+  - name: Download Dive
+    get_url:
+      url: https://github.com/wagoodman/dive/releases/download/v0.9.1/dive_0.9.1_linux_amd64.deb
+      dest: /tmp/dive.deb
+
+  - name: Install Dive
+    apt: deb="/tmp/dive.deb"

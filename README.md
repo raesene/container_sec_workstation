@@ -8,6 +8,7 @@ Rough draft at the moment, still quite a bit of work to do.
 
 - Tested on Ubuntu, may work on other deb based distros
 - [Ansible install](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+  - For Ubuntu there's an install script (install_ansible_ubuntu.sh)
 - Change the `user` var in the playbook to your username
 
 ## Tools List

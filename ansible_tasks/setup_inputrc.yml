@@ -1,0 +1,6 @@
+---
+  - name: copy inputrc into place
+    copy:
+      src: ../files/dotfiles/.inputrc
+      dest: /home/{{user}}/.inputrc
+      mode: 0755
