@@ -4,4 +4,3 @@
       url: https://github.com/kubernetes-sigs/kind/releases/download/v0.5.1/kind-linux-amd64
       dest: /usr/local/bin/kind
       mode: 0755
-      

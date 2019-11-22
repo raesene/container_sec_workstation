@@ -1,6 +1,6 @@
 ---
 
-  - name: Copy files to /usr/local/bin/ 
+  - name: Copy files to /usr/local/bin/
     copy:
       src: ../files/kubectltools/{{ item }}
       dest: /usr/local/bin/
@@ -9,7 +9,7 @@
       - kube-ps1.sh
       - kubens
       - kubectx
-  
+
   - name: copy completion files to /etc
     copy:
       src: ../files/kubectltools/{{ item }}
@@ -25,4 +25,3 @@
       block: |
         source /usr/local/bin/kube-ps1.sh
         PS1='[\h \W $(kube_ps1)]\$ '
-  
