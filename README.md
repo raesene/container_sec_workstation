@@ -1,6 +1,12 @@
 # Container Security Workstation Playbook
 
-This is a playbook for setting up a container security workstation with common tools for doing container security reviews.
+This is a set of playbooks for setting up a container security workstation with common tools for doing container security reviews.
+
+There are three playbooks in the repository
+
+- cli_container_sec_workstation.yml - This has only command line tools installed
+- gui_container_sec_workstation.yml - This adds tools that have a GUI but relies on a remote X server being available
+- desktop_container_sec_workstation.yml - This installs XFCE4 and xrdp so you can get a remote full desktop.
 
 Rough draft at the moment, still quite a bit of work to do.
 
@@ -11,7 +17,7 @@ Rough draft at the moment, still quite a bit of work to do.
   - For Ubuntu there's an install script (install_ansible_ubuntu.sh)
 - Change the `user` var in the playbook to your username
 
-## Tools List
+## Tools List - Core
 
 - [Auger](https://github.com/jpbetz/auger)
 - [Docker](https://www.docker.com/)
@@ -32,8 +38,17 @@ Rough draft at the moment, still quite a bit of work to do.
 - [dive](https://github.com/wagoodman/dive)
 - [kube-bench](https://github.com/aquasecurity/kube-bench/)
 
+## Tools List - GUI
+
+If you install the GUI playbook then it will add some handy tools which require a GUI.  You can then access the VM from a machine with an X Server (e.g. MobaXterm or XMing on Windows) and access these additional tools
+
+- [firefox](https://www.mozilla.org/en-GB/firefox/new/?redirect_source=firefox-com)
+- [octant](https://github.com/vmware-tanzu/octant)
+- [Visual Studio Code](https://code.visualstudio.com/)
+
 ## TODO
 
 - Add More tools
 - Make installation patterns consistent
 - Check Checksums/signatures where apt not used
+- For VS Code can we script installs of handy plugins (e.g. Docker, Kubernetes)

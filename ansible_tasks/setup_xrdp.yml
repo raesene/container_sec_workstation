@@ -1,0 +1,5 @@
+---
+  - name: install xrdp
+    apt:
+      name: ['xrdp']
+      state: present

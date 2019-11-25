@@ -1,0 +1,5 @@
+---
+  - name: install XFCE 4
+    apt:
+      name: ['xfce4','xfce4-terminal','tango-icon-theme']
+      state: present
