@@ -1,5 +1,6 @@
 #!/usr/bin/env ansible-playbook
-# This is a playbook for setting up a container security testing workstation
+# This is a playbook for setting up a container security testing workstation with a full desktop
+# and xrdp for remote access.
 # if you don't need/want specific tools just comment out the appropriate line.
 # N.B. change the user: variable to whatever user you use.
 

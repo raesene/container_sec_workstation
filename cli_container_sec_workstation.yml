@@ -1,0 +1,31 @@
+#!/usr/bin/env ansible-playbook
+# This is a playbook for setting up a container security testing workstation with CLI only tools
+# if you don't need/want specific tools just comment out the appropriate line.
+# N.B. change the user: variable to whatever user you use.
+
+
+---
+- name: Setup a Container Security Ubuntu Machine
+  hosts: localhost
+  become: yes
+  vars:
+    user: rorym
+
+
+  tasks:
+  - import_tasks: ansible_tasks/setup_docker.yml
+  - import_tasks: ansible_tasks/setup_docker_compose.yml
+  - import_tasks: ansible_tasks/setup_trivy.yml
+  - import_tasks: ansible_tasks/setup_helm.yml
+  - import_tasks: ansible_tasks/setup_auger.yml
+  - import_tasks: ansible_tasks/setup_etcdctl.yml
+  - import_tasks: ansible_tasks/setup_gvisor.yml
+  - import_tasks: ansible_tasks/setup_rbac_tools.yml
+  - import_tasks: ansible_tasks/setup_nmap.yml
+  - import_tasks: ansible_tasks/setup_kind.yml
+  - import_tasks: ansible_tasks/setup_kubectl.yml
+  - import_tasks: ansible_tasks/setup_kubectl_completion.yml
+  - import_tasks: ansible_tasks/setup_kubectl_tools.yml
+  - import_tasks: ansible_tasks/setup_whaler_dive.yml
+  - import_tasks: ansible_tasks/setup_kube_bench.yml
+  - import_tasks: ansible_tasks/setup_inputrc.yml
