@@ -1,0 +1,9 @@
+---
+  - name: Install Docker Plugin
+    shell: code --install-extension ms-azuretools.vscode-docker
+
+  - name: Install Kubernetes Plugin
+    shell: code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+  
+  - name: Install YAML Plugin
+    shell: code --install-extension redhat.vscode-yaml
