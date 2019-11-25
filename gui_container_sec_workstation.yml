@@ -33,4 +33,11 @@
   - import_tasks: ansible_tasks/setup_inputrc.yml
   - import_tasks: ansible_tasks/setup_octant.yml
   - import_tasks: ansible_tasks/setup_vscode.yml
+
+# Code doesn't like plugins being setup as root
+- name: Setup vscode plugins
+  hosts: localhost
+  become: no
+
+  tasks:
   - import_tasks: ansible_tasks/setup_vscode_plugins.yml

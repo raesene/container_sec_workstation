@@ -36,3 +36,11 @@
   - import_tasks: ansible_tasks/setup_vscode_plugins.yml
   - import_tasks: ansible_tasks/setup_xfce4.yml
   - import_tasks: ansible_tasks/setup_xrdp.yml
+
+# Code doesn't like plugins being setup as root
+- name: Setup vscode plugins
+  hosts: localhost
+  become: no
+
+  tasks:
+  - import_tasks: ansible_tasks/setup_vscode_plugins.yml
