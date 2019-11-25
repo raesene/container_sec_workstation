@@ -33,5 +33,3 @@
   - import_tasks: ansible_tasks/setup_inputrc.yml
   - import_tasks: ansible_tasks/setup_octant.yml
   - import_tasks: ansible_tasks/setup_vscode.yml
-  - import_tasks: ansible_tasks/setup_xfce4.yml
-  - import_tasks: ansible_tasks/setup_xrdp.yml
