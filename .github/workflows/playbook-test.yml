@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: ./install_ansible_ubuntu.sh
+    - name: Run a multi-line script
+      run: ansible-playbook cli_container_sec_workstation.yml
