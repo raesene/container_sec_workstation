@@ -58,5 +58,3 @@ If you install the GUI playbook then it will add some handy tools which require 
 ## TODO
 
 - Add More tools
-- Make installation patterns consistent
-- Check Checksums/signatures where apt not used

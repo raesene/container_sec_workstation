@@ -1,7 +1,7 @@
 ---
   - name: Helm Files
     get_url:
-      url: https://get.helm.sh/helm-v2.16.0-linux-amd64.tar.gz
+      url: https://get.helm.sh/helm-v2.16.1-linux-amd64.tar.gz
       dest: /tmp/helm.tar.gz
       checksum: sha256:7eebaaa2da4734242bbcdced62cc32ba8c7164a18792c8acdf16c77abffce202
 
