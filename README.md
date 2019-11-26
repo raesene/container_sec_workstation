@@ -49,7 +49,7 @@ and it should setup the machine as needed.
 
 ## Tools List - GUI
 
-If you install the GUI playbook then it will add some handy tools which require a GUI.  You can then access the VM from a machine with an X Server (e.g. MobaXterm or XMing on Windows) and access these additional tools
+If you install the GUI or desktop playbooks then it will add some handy tools which require a GUI.  You can then access the VM from a machine with an X Server (e.g. MobaXterm or XMing on Windows) and access these additional tools
 
 - [firefox](https://www.mozilla.org/en-GB/firefox/new/?redirect_source=firefox-com)
 - [octant](https://github.com/vmware-tanzu/octant)
