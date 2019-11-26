@@ -3,6 +3,7 @@
     get_url:
       url: https://github.com/aquasecurity/trivy/releases/download/v0.2.1/trivy_0.2.1_Linux-64bit.deb
       dest: /tmp/trivy.deb
+      checksum: sha256:e1532f9cbdfc1bfa807867f56c23c305a51f19f0497d1967c1f2cbb3a3284213
 
   - name: Install Trivy
     apt: deb="/tmp/trivy.deb"
