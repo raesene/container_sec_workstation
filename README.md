@@ -17,6 +17,15 @@ Rough draft at the moment, still quite a bit of work to do.
   - For Ubuntu there's an install script (install_ansible_ubuntu.sh)
 - Change the `user` var in the playbook to your username
 
+## Installation Process
+
+Once you've got the pre-requisites installed, you can just run
+
+```
+ansible-playbook [playbook-YAML-file]
+```
+and it should setup the machine as needed.
+
 ## Tools List - Core
 
 - [Auger](https://github.com/jpbetz/auger)
@@ -44,11 +53,10 @@ If you install the GUI playbook then it will add some handy tools which require 
 
 - [firefox](https://www.mozilla.org/en-GB/firefox/new/?redirect_source=firefox-com)
 - [octant](https://github.com/vmware-tanzu/octant)
-- [Visual Studio Code](https://code.visualstudio.com/)
+- [Visual Studio Code](https://code.visualstudio.com/) , with the Docker, Kubernetes and YAML plugins
 
 ## TODO
 
 - Add More tools
 - Make installation patterns consistent
 - Check Checksums/signatures where apt not used
-- For VS Code can we script installs of handy plugins (e.g. Docker, Kubernetes)
