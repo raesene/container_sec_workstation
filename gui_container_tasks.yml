@@ -1,0 +1,4 @@
+---
+  - import_tasks: ansible_tasks/setup_firefox.yml
+  - import_tasks: ansible_tasks/setup_octant.yml
+  - import_tasks: ansible_tasks/setup_vscode.yml

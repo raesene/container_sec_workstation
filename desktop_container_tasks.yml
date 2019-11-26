@@ -1,0 +1,3 @@
+---
+  - import_tasks: ansible_tasks/setup_xfce4.yml
+  - import_tasks: ansible_tasks/setup_xrdp.yml
