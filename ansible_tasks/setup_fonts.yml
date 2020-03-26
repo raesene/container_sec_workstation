@@ -1,0 +1,5 @@
+---
+  - name: install dependencies for adding repos
+    apt:
+      name: ['fonts-noto-color-emoji']
+      state: present
