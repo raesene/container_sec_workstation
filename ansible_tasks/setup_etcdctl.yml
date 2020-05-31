@@ -9,9 +9,11 @@
     unarchive:
       src: /tmp/etcd.tar.gz
       dest: /tmp
+      remote_src: yes
 
   - name: move etcdctl into place
     copy:
       src: /tmp/etcd-v3.4.3-linux-amd64/etcdctl
       dest: /usr/local/bin
       mode: 0755
+      remote_src: yes

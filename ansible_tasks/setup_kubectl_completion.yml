@@ -4,5 +4,11 @@
       name: ['bash-completion']
       state: present
 
+  - name: ensure the bach completion directory is present
+    file:
+      path: /etc/bash_completion.d
+      state: directory
+      mode: '0755'
+
   - name: Install Kubectl completion
     shell: kubectl completion bash >/etc/bash_completion.d/kubectl

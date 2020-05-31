@@ -1,7 +1,8 @@
 #!/usr/bin/env ansible-playbook
 # This is a playbook for setting up a container security testing workstation with CLI only tools
-# if you don't need/want specific tools just comment out the appropriate line.
+# inside a WSL environment.
 # N.B. change the user: variable to whatever user you use.
+# Details on usage are https://raesene.github.io/blog/2020/05/31/Custom_Pentest_Distributions_With_WSL2/
 
 
 ---

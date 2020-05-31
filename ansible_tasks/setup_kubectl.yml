@@ -9,7 +9,7 @@
       repo: deb http://apt.kubernetes.io/ kubernetes-xenial main
       state: present
 
-  - name: Install kubeadm, kubelet, kubectl and jq
+  - name: Install kubectl and jq
     apt:
       name: ['kubectl', 'jq']
       state: present

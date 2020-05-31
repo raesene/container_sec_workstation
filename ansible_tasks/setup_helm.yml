@@ -9,9 +9,11 @@
     unarchive:
       src: /tmp/helm.tar.gz
       dest: /tmp
+      remote_src: yes
 
   - name: move helm into place
     copy:
       src: /tmp/linux-amd64/helm
       dest: /usr/local/bin
       mode: 0755
+      remote_src: yes
