@@ -4,4 +4,4 @@
       url: https://github.com/kubernetes-sigs/kind/releases/download/v0.8.1/kind-linux-amd64
       dest: /usr/local/bin/kind
       mode: 0755
-      checksum: sha256:0e07d5a9d5b8bf410a1ad8a7c8c9c2ea2a4b19eda50f1c629f1afadb7c80fae7
+      checksum: sha256:781c3db479b805d161b7c2c7a31896d1a504b583ebfcce8fcd49538c684d96bc

@@ -27,7 +27,7 @@
   gather_facts: no
   vars:
     user: root
-    
+
   tasks:
     - name: Install Python
       raw: apt update && apt install -y python3
