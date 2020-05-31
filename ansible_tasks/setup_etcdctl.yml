@@ -1,9 +1,9 @@
 ---
   - name: Get etcd
     get_url:
-      url: https://github.com/etcd-io/etcd/releases/download/v3.4.3/etcd-v3.4.3-linux-amd64.tar.gz
+      url: https://github.com/etcd-io/etcd/releases/download/v3.4.9/etcd-v3.4.9-linux-amd64.tar.gz
       dest: /tmp/etcd.tar.gz
-      checksum: sha256:6c642b723a86941b99753dff6c00b26d3b033209b15ee33325dc8e7f4cd68f07
+      checksum: sha256:bcab421f6bf4111accfceb004e0a0ac2bcfb92ac93081d9429e313248dd78c41
 
   - name: unarchive etcd
     unarchive:
