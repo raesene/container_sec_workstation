@@ -1,6 +1,21 @@
 ---
-  - name: Get GVisor
-    get_url:
-      url: https://storage.googleapis.com/gvisor/releases/nightly/latest/runsc
-      dest: /usr/local/bin
-      mode: 0755
+  - name: install dependencies for adding repos
+    apt:
+      name: ['apt-transport-https', 'ca-certificates', 'curl','gnupg-agent', 'software-properties-common']
+      state: present
+
+  - name: Install GVisor APT key
+    apt_key:
+      id: 6F1DF85E3A71C24918E727D56FC6D554E32BD943
+      url: https://gvisor.dev/archive.key
+      state: present
+
+  - name: Add GVisor Repository
+    apt_repository:
+      repo: deb https://storage.googleapis.com/gvisor/releases release main
+      state: present
+
+  - name: Install GVisor
+    apt:
+      name: ['runsc']
+      state: present
