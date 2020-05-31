@@ -21,7 +21,7 @@
 
   - name: Setup bashrc for kube-ps1
     blockinfile:
-      path: "{% if user = root %}value{% else %}/home/{{user}}/.bashrc{% endif %}"
+      path: "{% if user == 'root' %}/root/.bashrc{% else %}/home/{{user}}/.bashrc{% endif %}"
       block: |
         source /usr/local/bin/kube-ps1.sh
         PS1='[\h \W $(kube_ps1)]\$ '

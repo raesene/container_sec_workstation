@@ -2,5 +2,5 @@
   - name: copy inputrc into place
     copy:
       src: ../files/dotfiles/.inputrc
-      dest: /home/{{user}}/.inputrc
+      dest: "{% if user == 'root' %}/root/.inputrc{% else %}/home/{{user}}/.inputrc{% endif %}"
       mode: 0755
