@@ -39,3 +39,5 @@
         state: present
     
     - import_tasks: base_container_tasks.yml
+    - import_tasks: ansible_tasks/setup_docker_client.yml
+  
