@@ -1,0 +1,16 @@
+#!/usr/bin/env ansible-playbook
+# This is a playbook for setting up a container security testing workstation with CLI only tools
+# if you don't need/want specific tools just comment out the appropriate line.
+# N.B. change the user: variable to whatever user you use.
+
+
+---
+- name: Setup a Container Security Ubuntu Machine
+  hosts: localhost
+  become: yes
+  vars:
+    user: root
+
+
+  tasks:
+  - import_tasks: base_container_tasks.yml

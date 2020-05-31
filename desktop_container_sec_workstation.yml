@@ -15,6 +15,7 @@
 
   tasks:
   - import_tasks: base_container_tasks.yml
+  - import_tasks: ansible_tasks/setup_docker.yml
   - import_tasks: gui_container_tasks.yml
   - import_tasks: desktop_container_tasks.yml
 
