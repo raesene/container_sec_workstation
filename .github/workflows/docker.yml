@@ -24,7 +24,7 @@ jobs:
         password: ${{ secrets.DOCKER_USERNAME }}
     - uses: actions/checkout@v2
     - name: install docker python library
-      run: pip3 install docker
+      run: sudo pip3 install docker
     - name: run the Image playbook
       run: ansible-playbook docker_container_sec_workstation.yml
     - name: Stop the Docker container
