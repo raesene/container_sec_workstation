@@ -30,7 +30,7 @@ jobs:
     - name: Stop the Docker container
       run: docker stop base
     - name: commit to an image
-      run: docker commit base rasesene/container_security_tools
+      run: docker commit base raesene/container_security_tools
     - name: push the image
       run: docker push raesene/container_security_tools
 
