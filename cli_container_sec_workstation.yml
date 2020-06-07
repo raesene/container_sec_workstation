@@ -9,7 +9,7 @@
   hosts: localhost
   become: yes
   vars:
-    user: {{ansible_user_id}}
+    user: "{{ansible_user_id}}"
 
 
   tasks:
