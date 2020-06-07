@@ -17,12 +17,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: azure/docker-login@v1
-      with:
-        username: ${{ secrets.DOCKER_PASSWORD }}
-        password: ${{ secrets.DOCKER_USERNAME }}
     - uses: actions/checkout@v2
+    - name: Docker Login
+      run: echo ${{secrets.DOCKER_PASSWORD}} | docker login -u raesene --password-stdin
     - name: install docker python library
       run: sudo pip3 install docker
     - name: run the Image playbook
