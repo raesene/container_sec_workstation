@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install Ansible
-      run: apt install -y ansible
+      run: sudo apt update && sudo apt install -y ansible
     - name: Run a multi-line script
       run: ansible-playbook cli_container_sec_workstation.yml
