@@ -11,5 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install Ansible
       run: sudo apt update && sudo apt install -y ansible
-    - name: Run a multi-line script
+    - name: Remove Moby Docker
+      run: sudo apt remove moby-buildx moby-cli moby-docker
+    - name: Run the CLI Container Playbook
       run: ansible-playbook cli_container_sec_workstation.yml
