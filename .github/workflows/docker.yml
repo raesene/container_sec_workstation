@@ -18,9 +18,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: azure/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_PASSWORD }}
+        password: ${{ secrets.DOCKER_USERNAME }}
     - uses: actions/checkout@v2
-    - name: Loging to Docker Hub
-      run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }}
     - name: run the Image playbook
       run: ansible-playbook docker_container_sec_workstation.yml
     - name: Stop the Docker container
