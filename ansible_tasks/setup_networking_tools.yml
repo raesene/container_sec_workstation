@@ -1,0 +1,5 @@
+---
+  - name: install networking and file utilities
+    apt:
+      name: ['iputils-ping', 'iputils-arping', 'traceroute','bind9-dnsutils','mount','tcpdump','git','libcap2-bin','whois','openssl']
+      state: present
