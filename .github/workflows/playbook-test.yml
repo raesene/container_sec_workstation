@@ -12,6 +12,6 @@ jobs:
     - name: Install Ansible
       run: sudo apt update && sudo apt install -y ansible
     - name: Remove Moby Docker
-      run: sudo apt remove moby-buildx moby-cli moby-docker
+      run: sudo apt remove moby-buildx moby-cli
     - name: Run the CLI Container Playbook
       run: ansible-playbook cli_container_sec_workstation.yml
