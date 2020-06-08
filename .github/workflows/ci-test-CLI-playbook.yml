@@ -1,7 +1,9 @@
 name: Test CLI Playbook
 
-on: [push]
-
+on:
+  push:
+    branches: [ master ]
+    
 jobs:
   build:
 
