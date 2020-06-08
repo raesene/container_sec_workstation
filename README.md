@@ -2,7 +2,7 @@
 
 This is a set of playbooks for setting up a container security workstation with common tools for doing container security reviews.
 
-There are three playbooks in the repository
+There are five playbooks in the repository
 
 - cli_container_sec_workstation.yml - This has only command line tools installed
 - gui_container_sec_workstation.yml - This adds tools that have a GUI but relies on a remote X server being available
