@@ -10,14 +10,12 @@ There are three playbooks in the repository
 - wsl_container_sec_workstation.yml - This is designed for installation inside a WSL environment that already has Docker installed (via Docker for Windows) and is running as root
 - docker_container_sec_workstation.yml - This is designed for creating Docker images for container security testing
 
-Rough draft at the moment, still quite a bit of work to do.
-
 ## Pre-requisites
 
 - Tested on Ubuntu, may work on other deb based distros
 - [Ansible install](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
   - For Ubuntu 18.04 there's an install script (install_ansible_ubuntu.sh)
-  - For Ubuntu 20.04 just install ansible with `apt update && apt install -y ansible
+  - For Ubuntu 20.04 just install ansible with `apt update && apt install -y ansible`
 - Change the `user` var in the playbook to your username
 
 ## Installation Process - VMs
