@@ -1,0 +1,7 @@
+---
+  - name: Get amicontained
+    get_url:
+      url: https://github.com/genuinetools/amicontained/releases/download/v0.4.9/amicontained-linux-amd64
+      dest: /usr/local/bin/amicontained
+      mode: 0755
+      checksum: sha256:d8c49e2cf44ee9668219acd092ed961fc1aa420a6e036e0822d7a31033776c9f
