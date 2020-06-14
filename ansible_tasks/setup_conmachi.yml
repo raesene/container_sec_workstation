@@ -1,0 +1,7 @@
+---
+
+  - name: Copy conmachi into place
+    copy:
+      src: ../files/conmachi/conmachi
+      dest: /usr/local/bin/
+      mode: 0755
