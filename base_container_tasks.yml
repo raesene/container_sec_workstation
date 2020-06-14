@@ -1,6 +1,6 @@
 ---
 
-  - import_takss: ansible_tasks/setup_base_tools.yml
+  - import_tasks: ansible_tasks/setup_base_tools.yml
   - import_tasks: ansible_tasks/setup_networking_tools.yml
   - import_tasks: ansible_tasks/setup_docker_compose.yml
   - import_tasks: ansible_tasks/setup_trivy.yml
