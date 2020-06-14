@@ -1,0 +1,7 @@
+---
+
+  - name: Copy escape.sh into place
+    copy:
+      src: ../files/escapesh/escape.sh
+      dest: /usr/local/bin/
+      mode: 0755
