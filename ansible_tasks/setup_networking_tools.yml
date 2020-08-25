@@ -1,5 +1,5 @@
 ---
   - name: install networking utilities
     apt:
-      name: ['iproute2','iputils-ping', 'iputils-arping', 'traceroute','bind9-dnsutils','tcpdump','libcap2-bin','whois']
+      name: ['iproute2','iputils-ping', 'iputils-arping', 'traceroute','dnsutils','tcpdump','libcap2-bin','whois']
       state: present
