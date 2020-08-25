@@ -1,5 +1,5 @@
 ---
   - name: install firefox
     apt:
-      name: ['firefox-esr']
+      name: ['firefox']
       state: present
