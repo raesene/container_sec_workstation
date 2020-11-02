@@ -1,5 +1,5 @@
 ---
   - name: make sure basic packages we need are installed
     apt:
-      name: ['wget','curl','git','mount','openssl']
+      name: ['wget','curl','git','mount','openssl', 'unzip']
       state: present
