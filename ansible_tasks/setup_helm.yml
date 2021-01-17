@@ -1,9 +1,9 @@
 ---
   - name: Helm Files
     get_url:
-      url: https://get.helm.sh/helm-v3.4.0-linux-amd64.tar.gz
+      url: https://get.helm.sh/helm-v3.5.0-linux-amd64.tar.gz
       dest: /tmp/helm.tar.gz
-      checksum: sha256:270acb0f085b72ec28aee894c7443739271758010323d72ced0e92cd2c96ffdb
+      checksum: sha256:3fff0354d5fba4c73ebd5db59a59db72f8a5bbe1117a0b355b0c2983e98db95b
 
   - name: unzip Helm
     unarchive:
