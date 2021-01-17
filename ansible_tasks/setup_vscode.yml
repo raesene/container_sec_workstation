@@ -7,3 +7,7 @@
   - name: Install Visual Studio Code
     apt: deb="/tmp/vscode.deb"
 
+  - name: add libxcb which code seems to need
+    apt:
+      name: ['libxcb-dri3-0']
+      state: present
