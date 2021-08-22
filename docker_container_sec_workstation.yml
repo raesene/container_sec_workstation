@@ -16,10 +16,7 @@
     - name: install docker package
       apt:
         name: ['python3-docker', 'python-is-python3']
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
-      with:
-        limit-access-to-actor: true
+
     - name: Start a base container
       docker_container:
         name: base

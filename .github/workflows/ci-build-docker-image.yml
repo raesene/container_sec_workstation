@@ -11,6 +11,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      with:
+        limit-access-to-actor: true
     - name: Docker Login
       run: echo ${{secrets.DOCKER_PASSWORD}} | docker login -u raesene --password-stdin
     - name: install docker python library
