@@ -10,6 +10,7 @@
   become: yes
   vars:
     user: root
+    ansible_python_interpreter: /usr/bin/python
 
 
   tasks:
