@@ -13,6 +13,10 @@
 
 
   tasks:
+    - name: install docker module
+      pip:
+        name: docker
+        
     - name: Start a base container
       docker_container:
         name: base
