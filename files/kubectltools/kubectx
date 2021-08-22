@@ -22,21 +22,30 @@ set -eou pipefail
 IFS=$'\n\t'
 
 SELF_CMD="$0"
+
 KUBECTX="${XDG_CACHE_HOME:-$HOME/.kube}/kubectx"
 
 usage() {
-  cat <<"EOF"
+  local SELF
+  SELF="kubectx"
+  if [[ "$(basename "$0")" == kubectl-* ]]; then # invoked as plugin
+    SELF="kubectl ctx"
+  fi
+
+  cat <<EOF
 USAGE:
-  kubectx                       : list the contexts
-  kubectx <NAME>                : switch to context <NAME>
-  kubectx -                     : switch to the previous context
-  kubectx <NEW_NAME>=<NAME>     : rename context <NAME> to <NEW_NAME>
-  kubectx <NEW_NAME>=.          : rename current-context to <NEW_NAME>
-  kubectx -d <NAME> [<NAME...>] : delete context <NAME> ('.' for current-context)
+  $SELF                       : list the contexts
+  $SELF <NAME>                : switch to context <NAME>
+  $SELF -                     : switch to the previous context
+  $SELF -c, --current         : show the current context name
+  $SELF <NEW_NAME>=<NAME>     : rename context <NAME> to <NEW_NAME>
+  $SELF <NEW_NAME>=.          : rename current-context to <NEW_NAME>
+  $SELF -d <NAME> [<NAME...>] : delete context <NAME> ('.' for current-context)
                                   (this command won't delete the user/cluster entry
                                   that is used by the context)
+  $SELF -u, --unset           : unset the current context
 
-  kubectx -h,--help             : show this message
+  $SELF -h,--help             : show this message
 EOF
 }
 
@@ -106,7 +115,7 @@ choose_context_interactive() {
   local choice
   choice="$(_KUBECTX_FORCE_COLOR=1 \
     FZF_DEFAULT_COMMAND="${SELF_CMD}" \
-    fzf --ansi || true)"
+    fzf --ansi --no-preview || true)"
   if [[ -z "${choice}" ]]; then
     echo 2>&1 "error: you did not choose any of the options"
     exit 1
@@ -177,14 +186,21 @@ delete_context() {
   $KUBECTL config delete-context "${ctx}"
 }
 
+unset_context() {
+  echo "Unsetting current context." >&2
+  $KUBECTL config unset current-context
+}
+
 main() {
-  if hash kubectl 2>/dev/null; then
-    KUBECTL=kubectl
-  elif hash kubectl.exe 2>/dev/null; then
-    KUBECTL=kubectl.exe
-  else
-    echo >&2 "kubectl is not installed"
-    exit 1
+  if [[ -z "${KUBECTL:-}" ]]; then
+    if hash kubectl 2>/dev/null; then
+      KUBECTL=kubectl
+    elif hash kubectl.exe  2>/dev/null; then
+      KUBECTL=kubectl.exe
+    else
+      echo >&2 "kubectl is not installed"
+      exit 1
+    fi
   fi
 
   if [[ "$#" -eq 0 ]]; then
@@ -207,6 +223,13 @@ main() {
   elif [[ "$#" -eq 1 ]]; then
     if [[ "${1}" == "-" ]]; then
       swap_context
+    elif [[ "${1}" == '-c' || "${1}" == '--current' ]]; then
+      # we don't call current_context here for two reasons:
+      # - it does not fail when current-context property is not set
+      # - it does not return a trailing newline
+      kubectl config current-context
+    elif [[ "${1}" == '-u' || "${1}" == '--unset' ]]; then
+      unset_context
     elif [[ "${1}" == '-h' || "${1}" == '--help' ]]; then
       usage
     elif [[ "${1}" =~ ^-(.*) ]]; then

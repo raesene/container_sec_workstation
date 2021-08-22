@@ -12,7 +12,7 @@
 
   - name: Add Docker Repository
     apt_repository:
-      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
       state: present
 
   - name: Install docker

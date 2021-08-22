@@ -22,15 +22,23 @@ set -eou pipefail
 IFS=$'\n\t'
 
 SELF_CMD="$0"
+
 KUBENS_DIR="${XDG_CACHE_HOME:-$HOME/.kube}/kubens"
 
 usage() {
-  cat <<"EOF"
+  local SELF
+  SELF="kubens"
+  if [[ "$(basename "$0")" == kubectl-* ]]; then # invoked as plugin
+    SELF="kubectl ns"
+  fi
+
+  cat <<EOF
 USAGE:
-  kubens                    : list the namespaces in the current context
-  kubens <NAME>             : change the active namespace of current context
-  kubens -                  : switch to the previous namespace in this context
-  kubens -h,--help          : show this message
+  $SELF                    : list the namespaces in the current context
+  $SELF <NAME>             : change the active namespace of current context
+  $SELF -                  : switch to the previous namespace in this context
+  $SELF -c, --current      : show the current namespace
+  $SELF -h,--help          : show this message
 EOF
 }
 
@@ -108,7 +116,7 @@ choose_namespace_interactive() {
   local choice
   choice="$(_KUBECTX_FORCE_COLOR=1 \
     FZF_DEFAULT_COMMAND="${SELF_CMD}" \
-    fzf --ansi || true)"
+    fzf --ansi --no-preview || true)"
   if [[ -z "${choice}" ]]; then
     echo 2>&1 "error: you did not choose any of the options"
     exit 1
@@ -197,6 +205,8 @@ main() {
       usage
     elif [[ "${1}" == "-" ]]; then
       swap_namespace
+    elif [[ "${1}" == '-c' || "${1}" == '--current' ]]; then
+      current_namespace
     elif [[ "${1}" =~ ^-(.*) ]]; then
       echo "error: unrecognized flag \"${1}\"" >&2
       usage
