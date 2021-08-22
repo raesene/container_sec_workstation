@@ -7,9 +7,9 @@
 
   - name: Download Dive
     get_url:
-      url: https://github.com/wagoodman/dive/releases/download/v0.9.2/dive_0.9.2_linux_amd64.deb
+      url: https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
       dest: /tmp/dive.deb
-      checksum: sha256:2964564a9a0656829d2ebdec9c5ca866cac193ae83ea0bd4e6cb73d490af450d
+      checksum: sha256:8b29af782887be4919fe3ba87ad10203f9e1bce2e9a8c94b3dff0881945758ab
 
   - name: Install Dive
     apt: deb="/tmp/dive.deb"
