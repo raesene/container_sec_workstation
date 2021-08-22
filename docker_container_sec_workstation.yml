@@ -13,9 +13,9 @@
 
 
   tasks:
-    - name: install docker module
-      pip:
-        name: requests, docker
+    - name: install docker package
+      apt:
+        name: ['python3-docker']
 
     - name: Start a base container
       docker_container:
