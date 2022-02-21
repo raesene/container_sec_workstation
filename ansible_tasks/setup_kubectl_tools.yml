@@ -6,7 +6,6 @@
       dest: /usr/local/bin/
       mode: 0755
     with_items:
-      - kube-ps1.sh
       - kubens
       - kubectx
 
@@ -18,10 +17,3 @@
     with_items:
       - kubens.bash
       - kubectx.bash
-
-  - name: Setup bashrc for kube-ps1
-    blockinfile:
-      path: "{% if user == 'root' %}/root/.bashrc{% else %}/home/{{user}}/.bashrc{% endif %}"
-      block: |
-        source /usr/local/bin/kube-ps1.sh
-        PS1='[\h \W $(kube_ps1)]\$ '
