@@ -21,7 +21,7 @@
     - name: Start a base container
       docker_container:
         name: base
-        image: ubuntu:20.04
+        image: ubuntu:22.04
         #command: tail -f /dev/null
         tty: yes
     - name: add the host
@@ -30,7 +30,7 @@
 - name: Setup Container
   hosts: base
   connection: docker
-  gather_facts: yes
+  gather_facts: no
   vars:
     user: root
 
@@ -38,6 +38,14 @@
     - name: Install Python
       raw: apt update && apt install -y python3
 
+- name: finalize container
+  hosts: base
+  connection: docker
+  gather_facts: yes
+  vars:
+    user: root
+
+  tasks:
     - name: Install package management packages
       apt:
         name: ['apt-transport-https','ca-certificates','curl','software-properties-common']
