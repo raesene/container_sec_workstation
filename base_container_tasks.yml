@@ -4,6 +4,7 @@
   - import_tasks: ansible_tasks/setup_networking_tools.yml
   - import_tasks: ansible_tasks/setup_trivy.yml
   - import_tasks: ansible_tasks/setup_helm.yml
+  - import_tasks: ansible_tasks/setup_kdigger.yml
   - import_tasks: ansible_tasks/setup_auger.yml
   - import_tasks: ansible_tasks/setup_etcdctl.yml
   - import_tasks: ansible_tasks/setup_rbac_tools.yml
