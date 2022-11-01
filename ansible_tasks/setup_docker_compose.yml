@@ -1,8 +1,0 @@
----
-
-  - name: get Docker Compose
-    get_url:
-      url: https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64
-      dest: /usr/local/bin/docker-compose
-      checksum: sha256:6dc9096eb6aed220e9b876b3ae6edbffa8bb3beaa5936d11495acd90ea6246f1
-      mode: 0755

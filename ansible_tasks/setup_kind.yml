@@ -1,7 +1,7 @@
 ---
   - name: Get kind
     get_url:
-      url: https://github.com/kubernetes-sigs/kind/releases/download/v0.11.1/kind-linux-amd64
+      url: https://github.com/kubernetes-sigs/kind/releases/download/v0.17.0/kind-linux-amd64
       dest: /usr/local/bin/kind
       mode: 0755
-      checksum: sha256:949f81b3c30ca03a3d4effdecda04f100fa3edc07a28b19400f72ede7c5f0491
+      checksum: sha256:a8c045856db33f839908b6acb90dc8ec397253ffdaef7baf058f5a542e009b9c

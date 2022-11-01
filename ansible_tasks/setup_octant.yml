@@ -1,8 +1,0 @@
-  - name: Download Octant
-    get_url:
-      url: https://github.com/vmware-tanzu/octant/releases/download/v0.16.3/octant_0.16.3_Linux-64bit.deb
-      dest: /tmp/octant.deb
-      checksum: sha256:d44b835a1704be3c80b929f151a712a1bbeaeb8c415b6aded7427b08c5155f68
-
-  - name: Install Octant
-    apt: deb="/tmp/octant.deb"

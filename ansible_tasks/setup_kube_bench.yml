@@ -1,9 +1,9 @@
 ---
   - name: Download Kube Bench
     get_url:
-      url: https://github.com/aquasecurity/kube-bench/releases/download/v0.4.0/kube-bench_0.4.0_linux_amd64.deb
+      url: https://github.com/aquasecurity/kube-bench/releases/download/v0.6.10/kube-bench_0.6.10_linux_amd64.deb
       dest: /tmp/kube_bench.deb
-      checksum: sha256:98b61ffd0af20491a3b96d7ca2c716efb572f50b54101b839cb86ea3278b8c64
+      checksum: sha256:fb4dfe6aedbf8d10cb2dd2551182bcf8209547de093098a24971ac8186435628
 
   - name: Install Kube Bench
     apt: deb="/tmp/kube_bench.deb"
