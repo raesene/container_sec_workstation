@@ -1,0 +1,19 @@
+---
+  - name: Get eathar
+    get_url:
+      url: https://github.com/raesene/eathar/releases/download/v0.1.14/eathar_0.1.14_Linux_x86_64.tar.gz
+      dest: /tmp/eathar.tar.gz
+      checksum: sha256:db453c0ad11ace0a575aefff51b3e86605b5df7e507158a81c7b0cdff3244130
+
+  - name: unarchive eathar
+    unarchive:
+      src: /tmp/eathar.tar.gz
+      dest: /tmp
+      remote_src: yes
+
+  - name: move eathar into place
+    copy:
+      src: /tmp/eathar
+      dest: /usr/local/bin
+      mode: 0755
+      remote_src: yes
