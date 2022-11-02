@@ -1,0 +1,3 @@
+---
+  - name: remove everything from /tmp
+    shell: rm -rf /tmp/*
