@@ -15,45 +15,7 @@
     state: running
   register: ec2
 
-- name: Facts
-  setup:
-- name: Dump
-  delegate_to: localhost
-  run_once: true
-  copy:
-    content: "{{ ec2.instances | to_nice_json }}"
-    dest: /tmp/setup-dump.json
-
-
 - name: Add all instance public IPs to host group
   add_host: hostname={{ item.public_ip_address }} groups=ec2host
   loop: "{{ ec2.instances }}"
   
-
-#  - name: Provision an instance
-#    ec2:
-#      key_name: "{{ key_pair }}"
-#      region: "{{ region }}"
-#      group: "{{ security_group }}"
-#      instance_type: "{{ instance_type }}"
-#      image: "{{ ami_id }}"
-#      assign_public_ip: yes
-#      count: "{{ instance_count }}"
-#      wait: yes
-#      vpc_subnet_id: "{{ subnet_id }}"
-#      volumes:
-#      - device_name: /dev/sda1
-#        volume_size: 40
-#        delete_on_termination: true
-#    register: ec2
-
-#  - name: Add all instance public IPs to host group
-#    add_host: hostname={{ item.public_ip }} groups=ec2hosts
-#    loop: "{{ ec2.instances }}"
-
-#  - name: Wait for SSH to be available
-#    delegate_to: "{{ item.public_ip }}"
-#    wait_for_connection:
-#      delay: 20
-#      timeout: 180
-#    with_items: "{{ec2.instances }}"

@@ -13,10 +13,10 @@
     # Replace with your desired instance size
     instance_type: t3.xlarge
     # Replace with a key that's available in your AWS account
-    key_pair: csw_student_key
+    key_pair: csw_key
     instance_count: 1
     # Replace with a Security Group that's available in your AWS account and allows the access you need
-    security_group: csw_student_group
+    security_group: csw_group
   #Change this to use a different region
   vars_files: 
     - ansible_vars/eu-west-2.yml
@@ -35,6 +35,8 @@
     # This is the domain name to use for the DNS record
     dns_domain: pwndland.uk
     user: ubuntu
+    # code Password change this obs
+    code_password: "changemebeforeuse123!"
 
 
   tasks:

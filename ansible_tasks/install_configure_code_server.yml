@@ -25,8 +25,7 @@
     lineinfile:
       path: /home/ubuntu/.config/code-server/config.yaml
       regexp: '^password:'
-      # Change this obvs
-      line: 'password: changemebeforeusing!'
+      line: 'password: {{code_password}}'
   
   - name: restart code server
     systemd:
