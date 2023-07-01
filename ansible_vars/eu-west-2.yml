@@ -1,0 +1,7 @@
+---
+  #security_group: cnsw_course
+  region: eu-west-2
+  #This is the Ubuntu 22.04 image in EU-West-2 - Change as needed.
+  ami_id: ami-024d2ea3ac8449f5f
+  #Replace with a Subnet that's available in your AWS account
+  subnet_id: subnet-a26c9ad9

@@ -3,3 +3,4 @@
     apt:
       name: ['wget','curl','git','mount','openssl', 'unzip']
       state: present
+      update_cache: yes

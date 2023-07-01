@@ -1,0 +1,35 @@
+---
+  - name: Install Code Server
+    get_url:
+      url: https://github.com/coder/code-server/releases/download/v4.14.0/code-server_4.14.0_amd64.deb
+      dest: /tmp/code-server.deb
+
+  - name: Install Code Server
+    apt:
+      deb: /tmp/code-server.deb
+      state: present
+  
+  - name: start code server
+    systemd:
+      name: code-server@ubuntu
+      state: started
+      enabled: yes
+
+  - name: Change port to 18080 in the code-server config file
+    lineinfile:
+      path: /home/ubuntu/.config/code-server/config.yaml
+      regexp: '^bind-addr:'
+      line: 'bind-addr: 127.0.0.1:18080'
+
+  - name: Change password to containersarecool123! in the code-server config file
+    lineinfile:
+      path: /home/ubuntu/.config/code-server/config.yaml
+      regexp: '^password:'
+      # Change this obvs
+      line: 'password: changemebeforeusing!'
+  
+  - name: restart code server
+    systemd:
+      name: code-server@ubuntu
+      state: restarted
+      enabled: yes

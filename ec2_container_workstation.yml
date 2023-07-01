@@ -1,0 +1,46 @@
+#!/usr/bin/env ansible-playbook
+# This is a playbook for setting up a container security testing workstation on EC2 with CLI only tools and VS Code Server
+# if you don't need/want specific tools just comment out the appropriate line.
+# N.B. change the user: variable to whatever user you use.
+
+---
+- hosts: localhost
+  connection: local
+  user: ubuntu
+  gather_facts: False
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+    # Replace with your desired instance size
+    instance_type: t3.xlarge
+    # Replace with a key that's available in your AWS account
+    key_pair: csw_student_key
+    instance_count: 1
+    # Replace with a Security Group that's available in your AWS account and allows the access you need
+    security_group: csw_student_group
+  #Change this to use a different region
+  vars_files: 
+    - ansible_vars/eu-west-2.yml
+  tasks:
+  - import_tasks: ansible_tasks/setup_ec2_instance.yml
+
+- hosts: ec2host
+  user: ubuntu
+  become: yes
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+    # This is the name of the DNSimple account to use
+    dnsimple_account_email: raesene@gmail.com
+    # Make sure you set this environment variable before running the playbook
+    dnsimple_api_key: "{{ lookup('env','DNSIMPLE_API_KEY') }}"
+    # This is the domain name to use for the DNS record
+    dns_domain: pwndland.uk
+    user: ubuntu
+
+
+  tasks:
+  - import_tasks: base_container_tasks.yml
+  - import_tasks: ansible_tasks/setup_docker_client.yml
+  - import_tasks: ansible_tasks/setup_docker_daemon.yml
+  - import_tasks: ansible_tasks/setup_docker_user.yml
+  - import_tasks: ansible_tasks/install_configure_code_server.yml
+  - import_tasks: ansible_tasks/setup_caddy_proxy.yml
