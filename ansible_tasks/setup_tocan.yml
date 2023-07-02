@@ -1,0 +1,19 @@
+---
+  - name: Get tocan
+    get_url:
+      url: https://github.com/raesene/tocan/releases/download/v0.0.6/tocan_0.0.6_Linux_x86_64.tar.gz
+      dest: /tmp/tocan.tar.gz
+      checksum: sha256:d88d999ce0bea246de266825cc8177e94b9a4f1a95b324450aed30adaab83327
+
+  - name: unarchive tocan
+    unarchive:
+      src: /tmp/tocan.tar.gz
+      dest: /tmp
+      remote_src: yes
+
+  - name: move tocan into place
+    copy:
+      src: /tmp/tocan
+      dest: /usr/local/bin
+      mode: 0755
+      remote_src: yes
