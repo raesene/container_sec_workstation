@@ -28,17 +28,17 @@
   become: yes
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
-    # This is the name of the DNSimple account to use. modify if using the DNSimple setup.
-    # dnsimple_account_email: raesene@gmail.com
-    # Make sure you set this environment variable before running the playbook if using DNSimple
-    # dnsimple_api_key: "{{ lookup('env','DNSIMPLE_API_KEY') }}"
-    # This is the domain name to use for the DNS record Needed for valid domain
-    # dns_domain: pwndland.uk
     user: ubuntu
     # code Password change this obs
     code_password: "changemebeforeuse123!"
-    # E-Mail address if you're setting up Caddy with a valid TLS Cert. If not leave as internal
-    email_address: internal
+    # This is the name of the DNSimple account to use. modify if using the DNSimple setup.
+    #dnsimple_account_email: raesene@gmail.com
+    # Make sure you set this environment variable before running the playbook if using DNSimple
+    #dnsimple_api_key: "{{ lookup('env','DNSIMPLE_API_KEY') }}"
+    # This is the domain name to use for the DNS record Needed for valid domain
+    #dns_domain: pwndland.uk
+    
+    
 
 
   tasks:
@@ -47,6 +47,7 @@
   - import_tasks: ansible_tasks/setup_docker_daemon.yml
   - import_tasks: ansible_tasks/setup_docker_user.yml
   - import_tasks: ansible_tasks/install_configure_code_server.yml
+  - import_tasks: ansible_tasks/setup_caddy_proxy.yml
   # Uncomment if you want to use DNSimple to setup a valid host name
   #- import_tasks: ansible_tasks/setup_dnsimple_name.yml
-  - import_tasks: ansible_tasks/setup_caddy_proxy.yml
+  

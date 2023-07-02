@@ -14,11 +14,22 @@
     delegate_to: localhost
     register: dns_record
 
-  - name: replace Caddy Config
-    blockinfile:
+  - name: remove old Caddy Config
+    file:
       path: /etc/caddy/Caddyfile
-      block: |
+      state: absent
+
+  - name: Add caddyfile contents
+    copy:
+      dest: /etc/caddy/Caddyfile
+      content: |
         csw.{{dns_domain}}:443 {
-          tls {{email_address}}
+          tls {{dnsimple_account_email}}
           reverse_proxy :18080
         }
+
+  - name: Restart Caddy
+    systemd:
+      name: caddy
+      state: restarted
+      enabled: yes

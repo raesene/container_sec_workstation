@@ -7,7 +7,7 @@
       caddy_config_mode: "Caddyfile"
       caddy_caddyfile: |
         :443 {
-          tls {{email_address}} {
+          tls internal {
             on_demand
           }
           reverse_proxy :18080
