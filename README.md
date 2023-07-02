@@ -63,6 +63,13 @@ Make sure to look at all the variable specified in the playbook and adapt them a
 - `security_group` - The name of the security group to use for the EC2 instance
 - `subnet_id` - The subnet to use for the EC2 instance. this is in the region file in ansible_vars.
 
+If you want a valid TLS cert and have a DNSimple account then uncomment the relevant lines in the playbook, and set 
+- `dnsimple_api_key` to your DNSimple API token.
+- `dnsimple_account_email` to the email address associated with your DNSimple account
+- `dns_domain` to the domain you want a record created at.
+
+Then uncomment the task for setup of the DNS record in the playbook.
+
 ## Tools List - Core
 
 - [Auger](https://github.com/jpbetz/auger)
@@ -95,8 +102,6 @@ If you install the GUI or desktop playbooks then it will add some handy tools wh
 ## Tools List - EC2
 
 If you install the EC2 playbook it will setup a [Code-Server](https://github.com/coder/code-server) instance on 443/TCP and then hook-up [Caddy](https://caddyserver.com/) to it to provide a reverse proxy with TLS.
-
-If you have a DNSimple account and want to use that uncomment the setup_dnsimple_name.yml task and set the relevant variables.
 
 ## TODO
 
