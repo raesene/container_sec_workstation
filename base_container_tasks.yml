@@ -15,7 +15,6 @@
   - import_tasks: ansible_tasks/setup_kubectl_completion.yml
   - import_tasks: ansible_tasks/setup_kubectl_tools.yml
   - import_tasks: ansible_tasks/setup_whaler_dive.yml
-  - import_tasks: ansible_tasks/setup_kube_bench.yml
   - import_tasks: ansible_tasks/setup_inputrc.yml
   - import_tasks: ansible_tasks/setup_fonts.yml
   - import_tasks: ansible_tasks/setup_amicontained.yml

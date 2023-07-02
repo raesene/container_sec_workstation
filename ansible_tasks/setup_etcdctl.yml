@@ -1,9 +1,9 @@
 ---
   - name: Get etcd
     get_url:
-      url: https://github.com/etcd-io/etcd/releases/download/v3.4.13/etcd-v3.4.13-linux-amd64.tar.gz
+      url: https://github.com/etcd-io/etcd/releases/download/v3.5.9/etcd-v3.5.9-linux-amd64.tar.gz
       dest: /tmp/etcd.tar.gz
-      checksum: sha256:2ac029e47bab752dacdb7b30032f230f49e2f457cbc32e8f555c2210bb5ff107
+      checksum: sha256:d59017044eb776597eca480432081c5bb26f318ad292967029af1f62b588b042
 
   - name: unarchive etcd
     unarchive:
@@ -13,7 +13,7 @@
 
   - name: move etcdctl into place
     copy:
-      src: /tmp/etcd-v3.4.13-linux-amd64/etcdctl
+      src: /tmp/etcd-v3.5.9-linux-amd64/etcdctl
       dest: /usr/local/bin
       mode: 0755
       remote_src: yes

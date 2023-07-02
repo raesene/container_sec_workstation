@@ -1,9 +1,9 @@
 ---
   - name: Get eathar
     get_url:
-      url: https://github.com/raesene/eathar/releases/download/v0.1.14/eathar_0.1.14_Linux_x86_64.tar.gz
+      url: https://github.com/raesene/eathar/releases/download/v0.2.10/eathar_0.2.10_Linux_x86_64.tar.gz
       dest: /tmp/eathar.tar.gz
-      checksum: sha256:db453c0ad11ace0a575aefff51b3e86605b5df7e507158a81c7b0cdff3244130
+      checksum: sha256:a49a73ee7543a8103222be16aa71c00fd2c746980fb28c288413ad1cea972b21
 
   - name: unarchive eathar
     unarchive:
