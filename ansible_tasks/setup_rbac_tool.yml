@@ -1,0 +1,19 @@
+---
+  - name: Get rbac-tool
+    get_url:
+      url: https://github.com/alcideio/rbac-tool/releases/download/v1.14.4/rbac-tool_v1.14.4_linux_amd64.tar.gz
+      dest: /tmp/rbactool.tar.gz
+      checksum: sha256:5a4e0feba9173569444956c5bf2ee26829981235b624bc2e4ec85025484b5eac
+
+  - name: unarchive rbac-tool
+    unarchive:
+      src: /tmp/rbactool.tar.gz
+      dest: /tmp
+      remote_src: yes
+
+  - name: move rbac-tool into place
+    copy:
+      src: /tmp/rbac-tool
+      dest: /usr/local/bin
+      mode: 0755
+      remote_src: yes
