@@ -13,3 +13,12 @@
       state: present
     delegate_to: localhost
     register: dns_record
+
+  - name: replace Caddy Config
+    blockinfile:
+      path: /etc/caddy/Caddyfile
+      block: |
+        csw.{{dns_domain}}:443 {
+          tls {{email_address}}
+          reverse_proxy :18080
+        }

@@ -6,8 +6,10 @@
     vars:
       caddy_config_mode: "Caddyfile"
       caddy_caddyfile: |
-        csw.pwndland.uk:443 {
-          tls {{email_address}}
+        :443 {
+          tls {{email_address}} {
+            on_demand
+          }
           reverse_proxy :18080
         }
         
