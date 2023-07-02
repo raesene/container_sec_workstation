@@ -1,18 +1,4 @@
 ---
-  - name: Authenticate to DNSimple & Create Record
-    community.general.dnsimple:
-      account_email: "{{ dnsimple_account_email }}"
-      account_api_token: "{{ dnsimple_api_key }}"
-      domain: "{{ dns_domain }}"
-      type: A
-      # Change as needed
-      record: csw
-      solo: yes
-      ttl: 360
-      value: "{{inventory_hostname}}"
-      state: present
-    delegate_to: localhost
-    register: dns_record
 
   - name: Setup the Caddy server
     include_role: 
@@ -21,7 +7,7 @@
       caddy_config_mode: "Caddyfile"
       caddy_caddyfile: |
         csw.pwndland.uk:443 {
-          tls rorym@mccune.org.uk
+          tls {{email_address}}
           reverse_proxy :18080
         }
         

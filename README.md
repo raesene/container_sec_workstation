@@ -67,7 +67,7 @@ Make sure to look at all the variable specified in the playbook and adapt them a
 
 - [Auger](https://github.com/jpbetz/auger)
 - [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
+- [eathar](https://github.com/raesene/eathar)
 - [etcdctl](https://etcd.io/)
 - [gvisor](https://gvisor.dev/)
 - [helm](https://helm.sh/)
@@ -76,13 +76,13 @@ Make sure to look at all the variable specified in the playbook and adapt them a
 - [kubens & kubectx](https://github.com/ahmetb/kubectx)
 - [kube-ps1](https://github.com/jonmosco/kube-ps1)
 - [nmap](https://nmap.org/)
-- [rakkess](https://github.com/corneliusweig/rakkess)
-- [kubectl-who-can](https://github.com/aquasecurity/kubectl-who-can)
-- [rback](https://github.com/team-soteria/rback)
+- [regclient](https://github.com/regclient/regclient)
+- [rbac-tool](https://github.com/alcideio/rbac-tool)
+- [teisteanas](https://github.com/raesene/teisteanas)
+- [tocan](https://github.com/raesene/tocan)
 - [trivy](https://github.com/aquasecurity/trivy/)
 - [whaler](https://github.com/P3GLEG/Whaler)
 - [dive](https://github.com/wagoodman/dive)
-- [kube-bench](https://github.com/aquasecurity/kube-bench/)
 
 ## Tools List - GUI
 
@@ -91,6 +91,12 @@ If you install the GUI or desktop playbooks then it will add some handy tools wh
 - [firefox](https://www.mozilla.org/en-GB/firefox/new/?redirect_source=firefox-com)
 - [octant](https://github.com/vmware-tanzu/octant)
 - [Visual Studio Code](https://code.visualstudio.com/) , with the Docker, Kubernetes and YAML plugins
+
+## Tools List - EC2
+
+If you install the EC2 playbook it will setup a [Code-Server](https://github.com/coder/code-server) instance on 443/TCP and then hook-up [Caddy](https://caddyserver.com/) to it to provide a reverse proxy with TLS.
+
+If you have a DNSimple account and want to use that uncomment the setup_dnsimple_name.yml task and set the relevant variables.
 
 ## TODO
 

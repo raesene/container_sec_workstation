@@ -1,0 +1,15 @@
+---
+  - name: Authenticate to DNSimple & Create Record
+    community.general.dnsimple:
+      account_email: "{{ dnsimple_account_email }}"
+      account_api_token: "{{ dnsimple_api_key }}"
+      domain: "{{ dns_domain }}"
+      type: A
+      # Change as needed
+      record: csw
+      solo: yes
+      ttl: 360
+      value: "{{inventory_hostname}}"
+      state: present
+    delegate_to: localhost
+    register: dns_record
