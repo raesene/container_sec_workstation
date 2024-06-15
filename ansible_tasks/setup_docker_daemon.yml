@@ -17,7 +17,7 @@
 
   - name: Install docker
     apt:
-      name: ['docker-ce']
+      name: ['docker-ce', 'containerd.io', 'docker-buildx-plugin', 'docker-compose-plugin']
       state: present
 
   - name: Add user to Docker group
