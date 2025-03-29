@@ -5,11 +5,23 @@
       dest: /usr/local/bin
       mode: 0755
 
+  - name: Check if Dive is installed and its version
+    command: dive --version
+    register: dive_version_check
+    ignore_errors: yes
+
+  - name: Skip Dive installation if a later version is installed
+    debug:
+      msg: "Dive is already installed and up-to-date."
+    when: dive_version_check.rc == 0 and "'0.10.0' in dive_version_check.stdout"
+
   - name: Download Dive
     get_url:
       url: https://github.com/wagoodman/dive/releases/download/v0.10.0/dive_0.10.0_linux_amd64.deb
       dest: /tmp/dive.deb
       checksum: sha256:8b29af782887be4919fe3ba87ad10203f9e1bce2e9a8c94b3dff0881945758ab
+    when: dive_version_check.rc != 0 or "'0.10.0' not in dive_version_check.stdout"
 
   - name: Install Dive
     apt: deb="/tmp/dive.deb"
+    when: dive_version_check.rc != 0 or "'0.10.0' not in dive_version_check.stdout"
