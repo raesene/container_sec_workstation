@@ -1,0 +1,7 @@
+---
+- name: Ensure alias sudo='sudo ' is added to ~/.bashrc
+  lineinfile:
+    path: ~/.bashrc
+    regexp: '^alias sudo='
+    line: "alias sudo='sudo '"
+    state: present

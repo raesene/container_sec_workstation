@@ -18,4 +18,7 @@
   - import_tasks: ansible_tasks/setup_fonts.yml
   - import_tasks: ansible_tasks/setup_amicontained.yml
   - import_tasks: ansible_tasks/setup_starship.yml
+  - import_tasks: ansible_tasks/setup_vimrc.yml
+  - import_tasks: ansible_tasks/setup_irbrc.yml
+  - import_tasks: ansible_tasks/setup_bashrc.yml
   - import_tasks: ansible_tasks/cleanup_tmp.yml

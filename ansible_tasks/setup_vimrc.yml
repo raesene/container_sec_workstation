@@ -1,0 +1,13 @@
+---
+- name: Ensure ~/.vimrc exists
+  file:
+    path: "{{ ansible_env.HOME }}/.vimrc"
+    state: touch
+
+- name: Add 'set ts=2 sw=2' to ~/.vimrc
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.vimrc"
+    line: |
+      set ts=2
+      set sw=2
+    insertafter: EOF

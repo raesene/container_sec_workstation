@@ -1,0 +1,10 @@
+---
+- name: Ensure ~/.irbrc exists with the desired configuration
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.irbrc"
+    line: "{{ item }}"
+    create: true
+  with_items:
+    - "IRB.conf[:PROMPT_MODE] = :SIMPLE"
+    - "IRB.conf[:AUTO_INDENT_MODE] = false"
+    - "IRB.conf[:USE_MULTILINE] = false"
