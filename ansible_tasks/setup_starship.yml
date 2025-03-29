@@ -1,8 +1,6 @@
 ---
 # Installs [Starship](https://starship.rs/) prompt
 - name: Install Starship prompt
-  become: yes
-  become_user: "{{user}}"
   environment:
     HOME: "/home/{{user}}"
   shell: |
@@ -12,7 +10,6 @@
   register: starship_install
   changed_when: starship_install.stdout.find("starship") != -1
   failed_when: starship_install.stdout.find("starship") == -1
-  notify: update bashrc
 
 - name: Copy starship.toml file into place
   ansible.builtin.copy:
@@ -22,4 +19,12 @@
     group: "{{ user }}"
     mode: '0644'
 
-
+- name: Add Starship initialization to .bashrc
+  lineinfile:
+    path: "/home/{{ user }}/.bashrc"
+    line: 'eval "$(starship init bash)"'
+    state: present
+    create: yes
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: '0644'
