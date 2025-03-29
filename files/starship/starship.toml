@@ -1,0 +1,20 @@
+add_newline = true
+
+[kubernetes]
+format = ' [⛵ $context \($namespace\)](dimmed green) '
+disabled = false
+
+[azure]
+disabled = true
+
+[aws]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[hostname]
+ssh_only = false

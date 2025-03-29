@@ -25,3 +25,9 @@
       name: "{{user}}"
       group: docker
       append: yes
+  
+  - name: Start Docker service
+    service:
+      name: docker
+      state: started
+      enabled: yes

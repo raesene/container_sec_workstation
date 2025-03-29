@@ -1,0 +1,29 @@
+---
+# Installs [Starship](https://starship.rs/) prompt
+- name: Check if Starship is installed
+  ansible.builtin.stat:
+    path: /home/{{ user }}/.config/starship.toml
+  register: starship
+ 
+- name: Install
+  when: not starship.stat.exists
+  ansible.builtin.command: "{{ linuxbrew_executable }} install starship"
+  environment: 
+    HOME: "/home/{{ user }}"
+  args:
+    executable: /bin/bash
+
+
+- name: Ensure .config directory exists
+  ansible.builtin.file:
+    path: "/home/{{ user }}/.config"
+    state: directory
+    mode: '0755'
+
+- name: Copy starship.toml file into place
+  ansible.builtin.copy:
+    src: "files/starship/starship.toml"
+    dest: "/home/{{ user }}/.config/starship.toml"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: '0644'
