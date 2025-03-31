@@ -3,7 +3,7 @@
     get_url:
       url: https://github.com/etcd-io/etcd/releases/download/v3.5.21/etcd-v3.5.21-linux-amd64.tar.gz
       dest: /tmp/etcd.tar.gz
-      
+
   - name: unarchive etcd
     unarchive:
       src: /tmp/etcd.tar.gz
@@ -12,7 +12,7 @@
 
   - name: move etcdctl into place
     copy:
-      src: /tmp/etcd-v3.5.9-linux-amd64/etcdctl
+      src: /tmp/etcd-v3.5.21-linux-amd64/etcdctl
       dest: /usr/local/bin
       mode: 0755
       remote_src: yes
