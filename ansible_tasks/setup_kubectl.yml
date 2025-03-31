@@ -1,13 +1,13 @@
 ---
   - name: Install Kubeadm APT key
     shell: |
-      curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor > /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+      curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor > /etc/apt/keyrings/kubernetes-apt-keyring.gpg
     args:
       creates: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
   - name: Add Kubeadm Repository
     apt_repository:
-      repo: deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /
+      repo: deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /
       state: present
 
   - name: Install kubectl and jq

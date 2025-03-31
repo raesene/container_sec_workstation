@@ -1,9 +1,8 @@
 ---
   - name: Kdigger Files
     get_url:
-      url: https://github.com/quarkslab/kdigger/releases/download/v1.5.0/kdigger-linux-amd64
+      url: https://github.com/quarkslab/kdigger/releases/download/v1.5.1/kdigger-linux-amd64
       dest: /tmp/kdigger
-      checksum: sha256:eb762e592f27964f722ed90f575a8eeff4f29c06618b82b312002b8bdf5a17a3
 
   - name: move kdigger into place
     copy:

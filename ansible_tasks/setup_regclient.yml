@@ -1,9 +1,8 @@
 ---
   - name: regctl Files
     get_url:
-      url: https://github.com/regclient/regclient/releases/download/v0.5.0/regctl-linux-amd64
+      url: https://github.com/regclient/regclient/releases/download/v0.8.2/regctl-linux-amd64
       dest: /tmp/regctl
-      checksum: sha256:0378f7ed0a330ded959c8feea17f0bdc192fe8259e873a48f018b2259281c4f1
 
   - name: move regctl into place
     copy:
