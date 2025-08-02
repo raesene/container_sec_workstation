@@ -11,6 +11,12 @@
   changed_when: starship_install.stdout.find("starship") != -1
   failed_when: starship_install.stdout.find("starship") == -1
 
+- name: Ensure ~/.config directory exists
+  file:
+    path: "/home/{{ user }}/.config"
+    state: directory
+    mode: '0755'
+
 - name: Copy starship.toml file into place
   ansible.builtin.copy:
     src: "files/starship/starship.toml"
