@@ -106,5 +106,4 @@ If you install the EC2 playbook it will setup a [Code-Server](https://github.com
 ## TODO
 
 - Add More tools
-- Ensure all tools from remote sources have signature/checksum checking
 - Make the EC2 install more flexible, less hardcoded

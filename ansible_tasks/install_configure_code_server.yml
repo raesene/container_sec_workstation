@@ -1,7 +1,7 @@
 ---
   - name: Install Code Server
     get_url:
-      url: https://github.com/coder/code-server/releases/download/v4.14.0/code-server_4.14.0_amd64.deb
+      url: https://github.com/coder/code-server/releases/download/v4.107.0/code-server_4.107.0_amd64.deb
       dest: /tmp/code-server.deb
 
   - name: Install Code Server
