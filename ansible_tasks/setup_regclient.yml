@@ -1,7 +1,7 @@
 ---
   - name: regctl Files
     get_url:
-      url: https://github.com/regclient/regclient/releases/download/v0.8.2/regctl-linux-amd64
+      url: https://github.com/regclient/regclient/releases/download/v0.11.1/regctl-linux-amd64
       dest: /tmp/regctl
 
   - name: move regctl into place

@@ -1,7 +1,7 @@
 ---
   - name: Get teisteanas
     get_url:
-      url: https://github.com/raesene/teisteanas/releases/download/v0.0.9/teisteanas_0.0.9_Linux_x86_64.tar.gz
+      url: https://github.com/raesene/teisteanas/releases/download/v0.0.10/teisteanas_Linux_x86_64.tar.gz
       dest: /tmp/teisteanas.tar.gz
 
   - name: unarchive teisteanas

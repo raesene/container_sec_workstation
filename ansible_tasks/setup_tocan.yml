@@ -1,7 +1,7 @@
 ---
   - name: Get tocan
     get_url:
-      url: https://github.com/raesene/tocan/releases/download/v0.0.10/tocan_0.0.10_Linux_x86_64.tar.gz
+      url: https://github.com/raesene/tocan/releases/download/v0.0.11/tocan_Linux_x86_64.tar.gz
       dest: /tmp/tocan.tar.gz
 
   - name: unarchive tocan
