@@ -1,3 +1,20 @@
 ---
-  - name: remove everything from /tmp
-    shell: rm -rf /tmp/*
+  - name: Ensure /tmp exists with correct permissions
+    file:
+      path: /tmp
+      state: directory
+      mode: '1777'  # Standard permissions for /tmp (includes sticky bit)
+    
+
+  - name: Find all contents of /tmp
+    find:
+      paths: /tmp
+      recurse: false
+      hidden: true  # Also finds hidden files (starting with .)
+    register: tmp_contents
+
+  - name: Remove everything inside /tmp
+    file:
+      path: "{{ item.path }}"
+      state: absent
+    loop: "{{ tmp_contents.files }}"
