@@ -1,9 +1,17 @@
 ---
+  - name: Ensure keyrings directory exists
+    file:
+      path: /etc/apt/keyrings
+      state: directory
+      mode: '0755'
+    become: yes
+
   - name: Install Kubeadm APT key
     shell: |
-      curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor > /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+      curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
     args:
       creates: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+    become: yes
 
   - name: Add Kubeadm Repository
     apt_repository:
